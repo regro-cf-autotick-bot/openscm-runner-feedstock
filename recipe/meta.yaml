@@ -11,6 +11,7 @@ source:
 
 build:
   number: 0
+  noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
 
 requirements:
@@ -25,7 +26,7 @@ requirements:
     - python-dotenv
     - scmdata >=0.7.4
     - tqdm
-    - importlib-metadata  # [py==37]
+    - importlib-metadata
 
 test:
   imports:
