@@ -35,7 +35,7 @@ test:
     - pip
   commands:
     - pip check
-    - python -c "import openscm_runner; assert openscm_runner.__version__ == '{{ version }}'"
+    - python -c "import openscm_runner; print(openscm_runner.__version__); assert openscm_runner.__version__ == '{{ version }}'"
 
 about:
   home: https://github.com/openscm/openscm-runner
