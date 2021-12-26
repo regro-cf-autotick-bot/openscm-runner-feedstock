@@ -1,5 +1,5 @@
 {% set name = "openscm-runner" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,24 +7,28 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 387f190de3368469768b222bf0a6c2802d73f8ae749c8b3574ef19d047e0f537
+  sha256: d8384613c3a252e9afb52da35b2d4319e0ef552061bc8d95af02f7577a9bcb12
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
 
 requirements:
   host:
     - pip
     - python >=3.7
+    - setuptools_scm
+
   run:
     - python >=3.7
     - click
+    - openscm-units >=0.5.0
     - pyam >=1.2
     - python-dotenv
     - scmdata >=0.7.4
     - tqdm
+    - importlib-metadata
 
 test:
   imports:
@@ -33,7 +37,7 @@ test:
     - pip
   commands:
     - pip check
-    - python -c "import openscm_runner; assert openscm_runner.__version__ == '{{ version }}'"
+    - python -c "import openscm_runner; print(openscm_runner.__version__); assert openscm_runner.__version__ == '{{ version }}'"
 
 about:
   home: https://github.com/openscm/openscm-runner
