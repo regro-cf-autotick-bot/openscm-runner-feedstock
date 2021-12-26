@@ -35,7 +35,6 @@ test:
     - openscm_runner
   requires:
     - pip
-    # - pytest
   commands:
     - pip check
     - python -c "import openscm_runner; print(openscm_runner.__version__); assert openscm_runner.__version__ == '{{ version }}'"
