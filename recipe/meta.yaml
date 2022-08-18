@@ -1,5 +1,5 @@
 {% set name = "openscm-runner" %}
-{% set version = "0.9.3" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0203de383566ef14cb82f1db08a840b980a262e913318a2f3e91388227f50e7a
+  sha256: a43c68861be276bf3672fc35d46fcba9aeac739fbe7777ec8e1668786f5d3735
 
 build:
   number: 0
