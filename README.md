@@ -1,11 +1,11 @@
-About openscm-runner
-====================
+About openscm-runner-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openscm-runner-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/openscm/openscm-runner
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openscm-runner-feedstock/blob/main/LICENSE.txt)
 
 Summary: Thin wrapper to run simple climate models (emissions driven runs only)
 
