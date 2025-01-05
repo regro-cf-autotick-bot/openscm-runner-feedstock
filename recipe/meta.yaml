@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: a43c68861be276bf3672fc35d46fcba9aeac739fbe7777ec8e1668786f5d3735
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools_scm
 
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - click
     - openscm-units >=0.5.0
     - pyam >=1.2
@@ -35,6 +35,7 @@ test:
     - openscm_runner
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - python -c "import openscm_runner; print(openscm_runner.__version__); assert openscm_runner.__version__ == '{{ version }}'"
